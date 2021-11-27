@@ -22,7 +22,7 @@ export default function Discover() {
             <Icon type='icon-search' className='search-icon' />
             <input type='text' placeholder='Destination or a hotel name' />
             <S.SearchBtn>
-              <p>Let's Go</p>
+              <p>Let&apos;s Go</p>
               <Icon type='icon-arrow-right' />
             </S.SearchBtn>
           </S.SearchHotel>
