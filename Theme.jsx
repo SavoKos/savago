@@ -2,9 +2,10 @@ import { ThemeProvider } from 'styled-components';
 
 const theme = {
   colors: {
-    gray: '#5d7793',
-    darkBlue: '#00264c',
+    gray: '#698096',
+    darkBlue: '#00264D',
     lightBlue: '#0080ff',
+    white: '#f1f5f9',
   },
 };
 

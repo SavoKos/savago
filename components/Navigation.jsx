@@ -1,23 +1,13 @@
 import styled from 'styled-components';
-import Image from 'next/image';
 import Icon from './UI/Icon';
 import Router from 'next/router';
+import Logo from './Logo';
 
 export default function Navigation() {
   return (
     <S.Container>
       <S.Navigation>
-        <S.Logo onClick={() => Router.push('/')}>
-          <Image
-            src='/logo.webp'
-            height='40'
-            width='40'
-            className='logo'
-            alt='Greenery Logo'
-          />
-          <h1>savago</h1>
-        </S.Logo>
-
+        <Logo />
         <S.Pages>
           <S.Page>
             <Icon type='icon-compass2' onClick={() => Router.push('/')} />
@@ -59,9 +49,10 @@ S.Container = styled.div`
   position: sticky;
   top: 0;
   z-index: 40;
+  background-color: ${({ theme }) => theme.colors.white};
 
   @media screen and (min-width: 768px) {
-    padding: 0 5%;
+    padding: 0 10%;
   }
 `;
 
@@ -78,23 +69,16 @@ S.Navigation = styled.div`
   }
 `;
 
-S.Logo = styled.div`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-
-  h1 {
-    color: ${({ theme }) => theme.colors.darkBlue};
-    margin-left: 0.5rem;
-  }
-`;
-
 S.Pages = styled.div`
   display: flex;
   align-items: center;
 `;
 
-S.User = styled.div``;
+S.User = styled.div`
+  .anticon {
+    cursor: pointer;
+  }
+`;
 
 S.Page = styled.div`
   cursor: pointer;
