@@ -8,6 +8,7 @@
 
 body {
   background-color: #f1f5f9;
+  padding: 0 10%;
 }
 
 html {
@@ -23,7 +24,7 @@ html::-webkit-scrollbar-track {
 }
 
 html::-webkit-scrollbar-thumb {
-  background: #50ba64; /* color of the tracking area */
+  background: #0080ff; /* color of the tracking area */
   border-radius: 1rem; /* roundness of the scroll thumb */
 }
 

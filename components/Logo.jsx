@@ -4,7 +4,7 @@ import Router from 'next/router';
 
 function Logo() {
   return (
-    <S.Logo onClick={() => Router.push('/')}>
+    <S.Logo onClick={() => Router.push('/')} className='logo'>
       <Image
         src='/logo.webp'
         height='40'
@@ -12,7 +12,7 @@ function Logo() {
         className='logo'
         alt='Greenery Logo'
       />
-      <h1>savago</h1>
+      <h1>savago.</h1>
     </S.Logo>
   );
 }

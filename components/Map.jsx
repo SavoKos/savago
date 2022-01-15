@@ -39,19 +39,24 @@ function Map({ page }) {
 // -------------------------------------------------- styling ----------------------------------------------
 const S = {};
 S.Map = styled.div`
+  display: none;
   background-color: ${({ theme }) => theme.colors.lightBlue};
   width: 40%;
   border-radius: 3rem;
   min-height: 80vh;
   position: relative;
   overflow: hidden;
-  background-image: url('/map.png');
+  background-image: url('/map.webp');
   background-position-x: center;
 
   .map-header {
     text-align: center;
     margin-top: 3rem;
     color: ${({ theme }) => theme.colors.white};
+  }
+
+  @media screen and (min-width: 1300px) {
+    display: block;
   }
 `;
 
@@ -105,7 +110,6 @@ S.Step = styled.div`
     font-size: 1.4em;
     border-radius: 50%;
     padding: 0.6rem;
-    background-color: ;
     backdrop-filter: blur(5px);
   }
 
