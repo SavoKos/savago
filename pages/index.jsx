@@ -27,7 +27,7 @@ export default function Discover() {
   }, []);
 
   const destinationItems = [
-    <S.Destination>
+    <S.Destination key={1}>
       <S.Image>
         <Image src='/india.webp' layout='fill' />
       </S.Image>
@@ -36,7 +36,7 @@ export default function Discover() {
         300,520 Hotels - <span>Avg. $92</span>
       </p>
     </S.Destination>,
-    <S.Destination>
+    <S.Destination key={2}>
       <S.Image>
         <Image src='/greece.webp' layout='fill' />
       </S.Image>
@@ -45,7 +45,7 @@ export default function Discover() {
         300,520 Hotels - <span>Avg. $92</span>
       </p>
     </S.Destination>,
-    <S.Destination>
+    <S.Destination key={3}>
       <S.Image>
         <Image src='/spain.webp' layout='fill' />
       </S.Image>
