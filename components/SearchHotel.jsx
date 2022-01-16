@@ -58,13 +58,13 @@ function SearchHotel() {
         <S.SearchResults>
           <h4>Popular results</h4>
           {searchResults.map((result) => (
-            <S.SearchResult>
+            <S.SearchResult key={result.destinationId}>
               {result.type === 'HOTEL' ? (
                 <Icon type='icon-hotel' />
               ) : (
                 <Icon type='icon-location2' />
               )}
-              <h3 key={result.destinationId}>
+              <h3>
                 {result.caption
                   .replace("<span class='highlighted'>", '')
                   .replace('</span>', '')}
