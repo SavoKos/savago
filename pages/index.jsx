@@ -81,7 +81,7 @@ export default function Discover() {
             </S.Destinations>
           </S.TopDestinations>
         </S.Discover>
-        <Map page='Discover' />
+        <Map active='location' />
       </S.Container>
     </>
   );
@@ -104,7 +104,7 @@ S.Discover = styled.div`
   }
 
   h1 {
-    font-size: clamp(2rem, 10vw, 5rem);
+    font-size: clamp(2rem, 10vw, 4rem);
     margin: 2rem 0;
     color: ${({ theme }) => theme.colors.darkBlue};
 

@@ -3,7 +3,8 @@ import Logo from './Logo';
 import Icon from './UI/Icon';
 import Link from 'next/link';
 
-function Map({ page }) {
+function Map({ active = '' }) {
+  console.log(active);
   return (
     <S.Map>
       <p className='map-header'>
@@ -18,16 +19,16 @@ function Map({ page }) {
       <S.Steps>
         <S.Line />
         <Link href='/'>
-          <S.Step active={page === 'Discover'}>
+          <S.Step active={active === 'location' || active === 'dates'}>
             <Icon type='icon-location' />
             <p>Location</p>
           </S.Step>
         </Link>
-        <S.Step>
+        <S.Step active={active === 'dates'}>
           <Icon type='icon-date_fill' />
           <p>Stay dates</p>
         </S.Step>
-        <S.Step>
+        <S.Step active={active === 'guests'}>
           <Icon type='icon-guests' />
           <p>Guests</p>
         </S.Step>

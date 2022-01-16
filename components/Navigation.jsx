@@ -128,12 +128,16 @@ S.SidebarNavItems = styled.div`
   .icon {
     margin-right: 1.5rem;
   }
+
+  p {
+    font-size: 0.6em;
+  }
 `;
 
 S.Sidebar = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   height: 100vh;
-  width: 75%;
+  width: 100%;
   position: fixed;
   right: 0;
   display: flex;

@@ -70,10 +70,6 @@ function SearchHotel() {
         placeholder='Destination or a hotel name'
         onChange={(e) => setSearchValue(e.target.value)}
       />
-      <S.SearchBtn>
-        <p>Let&apos;s Go</p>
-        <Icon type='icon-arrow-right' />
-      </S.SearchBtn>
       {searchResults?.length > 0 && !loading && (
         <S.SearchResults>
           <h4>Popular results</h4>
@@ -137,54 +133,6 @@ S.SearchHotel = styled.div`
 
     @media screen and (min-width: 768px) {
       font-size: 1.5em;
-    }
-  }
-`;
-
-S.SearchBtn = styled.div`
-  position: absolute;
-  right: 1%;
-  top: 50%;
-  transform: translate(-1%, -50%);
-  display: flex;
-  align-items: center;
-  background-color: ${({ theme }) => theme.colors.lightBlue};
-  padding: 1rem;
-  border-radius: 50%;
-  cursor: pointer;
-  -webkit-box-shadow: 0px 2px 13px 1px rgba(0, 128, 255, 0.43);
-  -moz-box-shadow: 0px 2px 13px 1px rgba(0, 128, 255, 0.43);
-  box-shadow: 0px 2px 13px 1px rgba(0, 128, 255, 0.43);
-
-  @media screen and (min-width: 768px) {
-    border-radius: 100rem;
-    padding: 1.5rem 2.5rem 1.5rem 2.5rem;
-  }
-
-  p,
-  .anticon {
-    color: #fff;
-
-    @media screen and (min-width: 768px) {
-      margin-left: 1rem;
-    }
-  }
-
-  .anticon {
-    font-size: 1.1em;
-
-    @media screen and (min-width: 768px) {
-      font-size: 1.3em;
-    }
-  }
-
-  p {
-    font-size: 1.05em;
-    font-weight: 500;
-    display: none;
-
-    @media screen and (min-width: 768px) {
-      display: block;
     }
   }
 `;
