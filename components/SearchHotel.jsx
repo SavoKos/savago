@@ -2,15 +2,20 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Icon from './UI/Icon';
+import Spinner from './UI/Spinner';
 
 function SearchHotel() {
   const [searchResults, setSearchResults] = useState(null);
+  const [searchValue, setSearchValue] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const searchHandler = (e) => {
+  const searchHandler = () => {
+    console.log(searchValue);
+    setLoading(true);
     const options = {
       method: 'GET',
       url: 'https://hotels4.p.rapidapi.com/locations/v2/search',
-      params: { query: e.target.value },
+      params: { query: searchValue },
       headers: {
         'x-rapidapi-host': 'hotels4.p.rapidapi.com',
         'x-rapidapi-key': '06d2a290fdmsh3e28c357bce8b6ap106aa0jsn246e7755295c',
@@ -20,12 +25,21 @@ function SearchHotel() {
     axios
       .request(options)
       .then(function (response) {
-        setSearchResults(
-          response?.data?.suggestions
-            ?.filter((_, i) => i < 2)
-            ?.flatMap((arr) => arr.entities)
-            ?.filter((_, i) => i < 20)
+        const filteredResults = response?.data?.suggestions
+          ?.filter((_, i) => i < 2)
+          ?.flatMap((arr) => arr.entities)
+          ?.filter((_, i) => i < 20);
+
+        // for some reason, caption(name) I get from API has span elements so there is a way to remove them
+        filteredResults.forEach(
+          (result) =>
+            (result.caption = result.caption
+              .replaceAll("<span class='highlighted'>", '')
+              .replaceAll('</span>', ''))
         );
+
+        setSearchResults(filteredResults);
+        setLoading(false);
       })
       .catch(function (error) {
         console.error(error);
@@ -40,7 +54,13 @@ function SearchHotel() {
     };
   }, []);
 
-  console.log(searchResults);
+  useEffect(() => {
+    if (!searchValue) return setSearchResults([]);
+
+    setLoading(true);
+    const delayDebounceFn = setTimeout(searchHandler, 700);
+    return () => clearTimeout(delayDebounceFn);
+  }, [searchValue]);
 
   return (
     <S.SearchHotel>
@@ -48,13 +68,13 @@ function SearchHotel() {
       <input
         type='text'
         placeholder='Destination or a hotel name'
-        onChange={searchHandler}
+        onChange={(e) => setSearchValue(e.target.value)}
       />
       <S.SearchBtn>
         <p>Let&apos;s Go</p>
         <Icon type='icon-arrow-right' />
       </S.SearchBtn>
-      {searchResults && (
+      {searchResults?.length > 0 && !loading && (
         <S.SearchResults>
           <h4>Popular results</h4>
           {searchResults.map((result) => (
@@ -71,6 +91,11 @@ function SearchHotel() {
               </h3>
             </S.SearchResult>
           ))}
+        </S.SearchResults>
+      )}
+      {loading && (
+        <S.SearchResults>
+          <Spinner />
         </S.SearchResults>
       )}
     </S.SearchHotel>
@@ -90,9 +115,7 @@ S.SearchHotel = styled.div`
     outline: 0;
     border: 0;
     font-size: 0.75em;
-    -webkit-box-shadow: 0px 10px 121px -42px rgba(0, 0, 0, 0.46);
-    -moz-box-shadow: 0px 10px 121px -42px rgba(0, 0, 0, 0.46);
-    box-shadow: 0px 10px 121px -42px rgba(0, 0, 0, 0.46);
+    box-shadow: 2px 0px 41px -4px rgba(0, 0, 0, 0.08);
 
     @media screen and (min-width: 480px) {
       font-size: 1em;
@@ -175,6 +198,8 @@ S.SearchResults = styled.div`
   padding: 1rem;
   overflow: auto;
   max-height: 22rem;
+  width: 100%;
+  box-shadow: 2px 0px 41px -4px rgba(0, 0, 0, 0.2);
 
   @media screen and (min-width: 480px) {
     padding: 1.5rem 1.3rem;

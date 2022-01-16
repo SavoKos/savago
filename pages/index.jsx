@@ -1,7 +1,7 @@
 import Icon from '@components/UI/Icon';
 import Head from 'next/head';
 import styled from 'styled-components';
-import Navigation from '../components/Navigation/Navigation';
+import Navigation from '../components/Navigation';
 import Map from '@components/Map';
 import Image from 'next/image';
 import AliceCarousel from 'react-alice-carousel';
@@ -44,10 +44,10 @@ export default function Discover() {
       <Head>
         <title>savago. Find your next trip</title>
       </Head>
-      <Navigation />
+      <Navigation active='home' />
       <S.Container>
         <S.Discover>
-          <p>Welcome back.</p>
+          <p className='greeting'>Welcome back.</p>
           <h1>
             <span>Where</span> are you <br />
             going to go?
@@ -117,7 +117,7 @@ S.Discover = styled.div`
     color: ${({ theme }) => theme.colors.lightBlue};
   }
 
-  p {
+  .greeting {
     color: ${({ theme }) => theme.colors.gray};
   }
 `;
@@ -167,6 +167,10 @@ S.Destination = styled.div`
   width: 100%;
   position: relative;
   height: 100%;
+
+  p {
+    color: ${({ theme }) => theme.colors.gray};
+  }
 
   @media screen and (min-width: 768px) {
     width: 95%;
