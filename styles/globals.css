@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #f1f5f9;
+  background-color: #f1f5f9 !important;
   padding: 0 10%;
 }
 

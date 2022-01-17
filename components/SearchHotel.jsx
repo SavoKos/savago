@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import SearchResultsList from './SearchResultsList';
 import Icon from './UI/Icon';
 import Spinner from './UI/Spinner';
 
@@ -71,23 +72,7 @@ function SearchHotel() {
         onChange={(e) => setSearchValue(e.target.value)}
       />
       {searchResults?.length > 0 && !loading && (
-        <S.SearchResults>
-          <h4>Popular results</h4>
-          {searchResults.map((result) => (
-            <S.SearchResult key={result.destinationId}>
-              {result.type === 'HOTEL' ? (
-                <Icon type='icon-hotel' />
-              ) : (
-                <Icon type='icon-location2' />
-              )}
-              <h3>
-                {result.caption
-                  .replace("<span class='highlighted'>", '')
-                  .replace('</span>', '')}
-              </h3>
-            </S.SearchResult>
-          ))}
-        </S.SearchResults>
+        <SearchResultsList searchResults={searchResults} />
       )}
       {loading && (
         <S.SearchResults>
@@ -151,50 +136,6 @@ S.SearchResults = styled.div`
 
   @media screen and (min-width: 480px) {
     padding: 1.5rem 1.3rem;
-  }
-
-  h4 {
-    font-weight: 400;
-    margin-bottom: 1rem;
-    opacity: 0.7;
-    padding-left: 0.7rem;
-  }
-
-  &::-webkit-scrollbar {
-    width: 7px; /* width of the entire scrollbar */
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: transparent; /* color of the scroll thumb */
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.colors.gray}7a;
-    border-radius: 1rem; /* roundness of the scroll thumb */
-  }
-`;
-
-S.SearchResult = styled.div`
-  display: flex;
-  align-items: center;
-  transition: all ease 0.3s;
-  cursor: pointer;
-  padding: 0.7rem;
-  border-radius: 1rem;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.gray}7a;
-  }
-
-  .anticon {
-    color: ${({ theme }) => theme.colors.gray};
-    font-size: 1.5em;
-    margin-right: 1rem;
-  }
-
-  h3 {
-    color: ${({ theme }) => theme.colors.darkBlue};
-    font-weight: 500;
   }
 `;
 

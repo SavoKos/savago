@@ -2,9 +2,12 @@ import styled from 'styled-components';
 import Logo from './Logo';
 import Icon from './UI/Icon';
 import Link from 'next/link';
+import Router from 'next/router';
+import { useSelector } from 'react-redux';
 
 function Map({ active = '' }) {
-  console.log(active);
+  const { destination } = useSelector((state) => state.destination);
+
   return (
     <S.Map>
       <p className='map-header'>
@@ -24,7 +27,10 @@ function Map({ active = '' }) {
             <p>Location</p>
           </S.Step>
         </Link>
-        <S.Step active={active === 'dates'}>
+        <S.Step
+          active={active === 'dates'}
+          onClick={destination === '' ? null : () => Router.push('/dates')}
+        >
           <Icon type='icon-date_fill' />
           <p>Stay dates</p>
         </S.Step>

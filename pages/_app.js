@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import Router from 'next/router';
 import '../styles/globals.css';
 import Theme from 'Theme';
+import { store } from '../redux/store';
+import { Provider } from 'react-redux';
 
 function MyApp({ Component, pageProps }) {
   NProgress.configure({ showSpinner: false });
@@ -23,7 +25,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Theme>
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </Theme>
   );
 }
