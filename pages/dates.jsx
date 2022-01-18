@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import DatePicker from '@components/DatePicker';
 import Icon from '@components/UI/Icon';
 
-function dates() {
+function Dates() {
   const { destination, checkin, checkout } = useSelector(
     (state) => state.destination
   );
@@ -127,4 +127,4 @@ S.Back = styled.div`
   }
 `;
 
-export default dates;
+export default Dates;
