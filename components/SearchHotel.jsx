@@ -15,10 +15,10 @@ function SearchHotel() {
     setLoading(true);
     const options = {
       method: 'GET',
-      url: 'https://hotels4.p.rapidapi.com/locations/v2/search',
-      params: { query: searchValue },
+      url: 'https://booking-com.p.rapidapi.com/v1/hotels/locations',
+      params: { name: searchValue, locale: 'en-gb' },
       headers: {
-        'x-rapidapi-host': 'hotels4.p.rapidapi.com',
+        'x-rapidapi-host': 'booking-com.p.rapidapi.com',
         'x-rapidapi-key': '06d2a290fdmsh3e28c357bce8b6ap106aa0jsn246e7755295c',
       },
     };
@@ -26,19 +26,14 @@ function SearchHotel() {
     axios
       .request(options)
       .then(function (response) {
-        const filteredResults = response?.data?.suggestions
-          ?.filter((_, i) => i < 2)
-          ?.flatMap((arr) => arr.entities)
-          ?.filter((_, i) => i < 20);
+        console.log(response.data);
+        const filteredResults = response.data.map((response) => ({
+          type: response.dest_type,
+          name: response.label,
+          id: response.dest_id,
+        }));
 
-        // for some reason, caption(name) I get from API has span elements so there is a way to remove them
-        filteredResults.forEach(
-          (result) =>
-            (result.caption = result.caption
-              .replaceAll("<span class='highlighted'>", '')
-              .replaceAll('</span>', ''))
-        );
-
+        console.log(filteredResults);
         setSearchResults(filteredResults);
         setLoading(false);
       })
@@ -68,7 +63,7 @@ function SearchHotel() {
       <Icon type='icon-search' className='search-icon' />
       <input
         type='text'
-        placeholder='Destination or a hotel name'
+        placeholder='Destination or hotel name'
         onChange={(e) => setSearchValue(e.target.value)}
       />
       {searchResults?.length > 0 && !loading && (

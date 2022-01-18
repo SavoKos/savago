@@ -8,7 +8,7 @@ import styled from 'styled-components';
 function DatePicker() {
   const dispatch = useDispatch();
 
-  const { checkin, checkout } = useSelector((state) => state.destination);
+  const { checkin, checkout } = useSelector((state) => state.searchInfo);
 
   const pickDateHandler = (date, type) => {
     if (type === 'checkin') return dispatch(checkinFunc(date));
@@ -24,7 +24,7 @@ function DatePicker() {
           name=''
           id=''
           onChange={(e) => pickDateHandler(e.target.value, 'checkin')}
-          value={checkin || null}
+          value={checkin || ''}
         />
       </S.Field>
       <S.Field>
@@ -34,7 +34,7 @@ function DatePicker() {
           name=''
           id=''
           onChange={(e) => pickDateHandler(e.target.value, 'checkout')}
-          value={checkout || null}
+          value={checkout || ''}
           disabled={!checkin}
           min={checkin}
         />

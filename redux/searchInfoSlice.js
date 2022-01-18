@@ -7,6 +7,7 @@ const initialState = {
   children: 0,
   rooms: 1,
   adults: 1,
+  searchType: 'locations',
 };
 
 export const pageSlice = createSlice({
@@ -31,10 +32,20 @@ export const pageSlice = createSlice({
     rooms: (state, { payload }) => {
       state.rooms = payload;
     },
+    searchType: (state, { payload }) => {
+      state.searchType = payload;
+    },
   },
 });
 
-export const { changeDestination, checkin, checkout, children, adults, rooms } =
-  pageSlice.actions;
+export const {
+  changeDestination,
+  checkin,
+  checkout,
+  children,
+  adults,
+  rooms,
+  searchType,
+} = pageSlice.actions;
 
 export default pageSlice.reducer;

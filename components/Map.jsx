@@ -6,7 +6,7 @@ import Router from 'next/router';
 import { useSelector } from 'react-redux';
 
 function Map({ active = '' }) {
-  const { destination } = useSelector((state) => state.destination);
+  const { destination } = useSelector((state) => state.searchInfo);
 
   return (
     <S.Map>

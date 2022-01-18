@@ -7,6 +7,8 @@ import Image from 'next/image';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import SearchHotel from '@components/SearchHotel';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 export default function Discover() {
   const destinationItems = [

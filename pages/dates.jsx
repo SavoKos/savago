@@ -11,7 +11,7 @@ import Icon from '@components/UI/Icon';
 
 function Dates() {
   const { destination, checkin, checkout } = useSelector(
-    (state) => state.destination
+    (state) => state.searchInfo
   );
 
   console.log(destination, checkin, checkout);
@@ -35,7 +35,6 @@ function Dates() {
       <Navigation active='home' />
       <S.Container>
         <S.Main>
-          <p className='greeting'>Welcome back.</p>
           <h1>
             <span>When</span> and <span>How </span>
             <br />

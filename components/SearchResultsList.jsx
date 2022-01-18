@@ -12,24 +12,27 @@ function SearchResultsList({ searchResults }) {
     Router.push('/dates');
   };
 
+  const checkLocation = (type) => {
+    return (
+      ['district', 'city', 'country', 'region'].find((el) => el === type)
+        ?.length > 0
+    );
+  };
+
   return (
     <S.SearchResults>
       <h4>Popular results</h4>
       {searchResults.map((result) => (
         <S.SearchResult
           onClick={() => submitSearchResult(result)}
-          key={result.destinationId}
+          key={result.dest_id}
         >
-          {result.type === 'HOTEL' ? (
-            <Icon type='icon-hotel' />
-          ) : (
-            <Icon type='icon-location2' />
-          )}
-          <h3>
-            {result.caption
-              .replace("<span class='highlighted'>", '')
-              .replace('</span>', '')}
-          </h3>
+          {result.type === 'hotel' && <Icon type='icon-hotel' />}
+          {checkLocation(result.type) && <Icon type='icon-location2' />}
+          {result.type === 'landmark' && <Icon type='icon-landmark' />}
+          {result.type === 'airport' && <Icon type='icon-airport' />}
+
+          <h3>{result.name}</h3>
         </S.SearchResult>
       ))}
     </S.SearchResults>

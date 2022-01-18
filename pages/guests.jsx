@@ -11,7 +11,7 @@ import NumberPicker from '@components/NumberPicker';
 
 function Guests() {
   const { destination, checkin, checkout, children, adults, rooms } =
-    useSelector((state) => state.destination);
+    useSelector((state) => state.searchInfo);
 
   console.log(destination, checkin, checkout, children, adults, rooms);
 
@@ -50,7 +50,9 @@ function Guests() {
               <Icon type='icon-arrow-left' />
               <p>Back</p>
             </S.Back>
-            <p className='next'>Search</p>
+            <p className='next' onClick={() => Router.push('/search')}>
+              Search
+            </p>
           </S.Buttons>
         </S.Main>
         <Map active='guests' />

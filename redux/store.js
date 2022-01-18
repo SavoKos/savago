@@ -3,7 +3,7 @@ import searchInfoReducer from './searchInfoSlice';
 
 export const store = configureStore({
   reducer: {
-    destination: searchInfoReducer,
+    searchInfo: searchInfoReducer,
   },
   devTools: process.env.NODE_ENV !== 'production',
 });
