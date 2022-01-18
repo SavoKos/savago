@@ -4,10 +4,13 @@ const initialState = {
   destination: '',
   checkin: '',
   checkout: '',
+  children: 0,
+  rooms: 1,
+  adults: 1,
 };
 
 export const pageSlice = createSlice({
-  name: 'destination',
+  name: 'searchInfo',
   initialState,
   reducers: {
     changeDestination: (state, { payload }) => {
@@ -19,9 +22,19 @@ export const pageSlice = createSlice({
     checkout: (state, { payload }) => {
       state.checkout = payload;
     },
+    children: (state, { payload }) => {
+      state.children = payload;
+    },
+    adults: (state, { payload }) => {
+      state.adults = payload;
+    },
+    rooms: (state, { payload }) => {
+      state.rooms = payload;
+    },
   },
 });
 
-export const { changeDestination, checkin, checkout } = pageSlice.actions;
+export const { changeDestination, checkin, checkout, children, adults, rooms } =
+  pageSlice.actions;
 
 export default pageSlice.reducer;

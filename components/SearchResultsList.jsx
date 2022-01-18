@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { changeDestination } from 'redux/desinationSlice';
+import { changeDestination } from 'redux/searchInfoSlice';
 import Router from 'next/router';
 import Icon from './UI/Icon';
 

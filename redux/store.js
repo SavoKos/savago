@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import desinationReducer from './desinationSlice';
+import searchInfoReducer from './searchInfoSlice';
 
 export const store = configureStore({
   reducer: {
-    destination: desinationReducer,
+    destination: searchInfoReducer,
   },
   devTools: process.env.NODE_ENV !== 'production',
 });

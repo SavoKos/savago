@@ -47,7 +47,13 @@ function Dates() {
               <Icon type='icon-arrow-left' />
               <p>Back</p>
             </S.Back>
-            <p className='next'>Next</p>
+            <button
+              className='next'
+              onClick={() => Router.push('/guests')}
+              disabled={!checkin || !checkout}
+            >
+              <p>Next</p>
+            </button>
           </S.Buttons>
         </S.Main>
         <Map active='dates' />
@@ -106,9 +112,22 @@ S.Buttons = styled.div`
   .next {
     background-color: ${({ theme }) => theme.colors.lightBlue};
     border-radius: 10rem;
-    padding: 1.5rem 4rem;
+    padding: 1rem 2.5em;
     color: ${({ theme }) => theme.colors.white};
     cursor: pointer;
+    outline: 0;
+    border: 0;
+    font-size: 1em;
+    transition: all ease 0.3s;
+
+    &:disabled {
+      background-color: ${({ theme }) => theme.colors.gray};
+      cursor: not-allowed;
+    }
+
+    @media screen and (min-width: 480px) {
+      padding: 1.5rem 4rem;
+    }
   }
 `;
 

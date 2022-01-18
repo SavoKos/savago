@@ -22,13 +22,17 @@ function Map({ active = '' }) {
       <S.Steps>
         <S.Line />
         <Link href='/'>
-          <S.Step active={active === 'location' || active === 'dates'}>
+          <S.Step
+            active={
+              active === 'location' || active === 'dates' || active === 'guests'
+            }
+          >
             <Icon type='icon-location' />
             <p>Location</p>
           </S.Step>
         </Link>
         <S.Step
-          active={active === 'dates'}
+          active={active === 'dates' || active === 'guests'}
           onClick={destination === '' ? null : () => Router.push('/dates')}
         >
           <Icon type='icon-date_fill' />
