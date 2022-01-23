@@ -15,8 +15,6 @@ function Search() {
     if (destination === '') return Router.push('/');
     if (checkin === '' || checkout === '') return Router.push('/dates');
 
-    const childrenCount = children > 0 ? { children_number: children } : '';
-
     const options = {
       method: 'GET',
       url: 'https://booking-com.p.rapidapi.com/v1/hotels/search',
@@ -31,7 +29,7 @@ function Search() {
         dest_id: destination.id,
         dest_type: destination.type,
         locale: 'en-gb',
-        childrenCount,
+        ...(children > 0 && { children_number: children }),
         page_number: '0',
         include_adjacency: 'true',
       },

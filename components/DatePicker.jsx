@@ -25,6 +25,7 @@ function DatePicker() {
           id=''
           onChange={(e) => pickDateHandler(e.target.value, 'checkin')}
           value={checkin || ''}
+          min={new Date().toISOString().slice(0, 10)}
         />
       </S.Field>
       <S.Field>
