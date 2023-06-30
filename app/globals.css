@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --ring: 217.2 32.6% 17.5%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body {
+  @apply bg-background text-text;
+}
+
+.links {
+  @apply text-slate-500 justify-between gap-2 lg:gap-10;
+}
+
+.links .link {
+  @apply flex items-center gap-2 hover:text-primary transition-colors;
+}
+
+.links .icon {
+  @apply text-2xl;
+}
+
+.sheet__content a,
+.sheet__content p {
+  @apply cursor-pointer hover:text-primary transition-colors;
+}
+
+.alice-carousel__prev-btn,
+.alice-carousel__next-btn {
+  position: absolute;
+  top: -50px;
+  font-size: 30px;
+  right: 0;
+  width: fit-content !important;
+}
+
+.alice-carousel__prev-btn:hover,
+.alice-carousel__next-btn:hover {
+  @apply text-primary transition-colors cursor-pointer;
+}
+
+.alice-carousel__prev-btn {
+  width: 100px !important;
+}
+
+.alice-carousel {
+  height: 100%;
+}
+
+.alice-carousel img {
+  position: relative !important;
+}
+
+.destination {
+  width: 95%;
+  cursor: pointer;
+}
+
+.destination img {
+  @apply rounded-2xl;
+}
+
+.destination h3 {
+  @apply font-bold mt-5;
+}
+.destination p {
+  @apply text-slate-400;
+}
+
+.destination span {
+  @apply font-bold;
+}
+
+.searchStage {
+  @apply flex flex-col items-center text-white relative;
+}
+
+.searchStage .icon {
+  @apply text-2xl bg-[#4f91ca] rounded-full p-3 mb-2;
+}
+.searchStage .icon.active {
+  @apply bg-white text-primary;
+}
+
+.login {
+  max-width: 600px;
+  width: 90%;
+  @apply absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2;
+}
+
+.container {
+  @apply w-11/12 lg:w-5/6 m-auto mt-10;
+}
