@@ -163,5 +163,39 @@ body {
 }
 
 .container {
-  @apply w-11/12 lg:w-5/6 m-auto mt-10;
+  @apply w-[90%] lg:w-5/6 ml-auto mr-auto;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.service {
+  @apply bg-transparent border-none shadow-none md:max-w-[50%] lg:max-w-[25%];
+}
+
+.service-icon {
+  @apply bg-primary w-fit bg-opacity-10 p-6 rounded-full text-3xl text-primary;
+}
+
+.card-title {
+  margin-top: 3rem !important;
+}
+
+.card-caption {
+  @apply text-caption;
+}
+
+.input-container {
+  @apply mt-20 relative w-full 2xl:w-3/4;
+}
+
+.input-container.newsletter {
+  @apply ml-auto mr-auto md:w-3/4;
+}
+
+.input-container__input {
+  @apply w-full h-14 md:h-20 rounded-full outline-none shadow-input py-7 px-12 md:py-10 md:px-12 text-sm md:text-base;
+}
+
+.input-submit {
+  @apply absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-white flex items-center rounded-full py-2 px-2 md:py-4 md:px-6 shadow-button cursor-pointer gap-1;
 }

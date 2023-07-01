@@ -16,7 +16,7 @@ import {
 function Navigation() {
   SheetClose;
   return (
-    <nav className='flex items-center justify-between'>
+    <nav className='flex items-center justify-between mt-10'>
       <Link href='/' className='flex items-center gap-3'>
         <Image src='/logo.webp' width={50} height={50} alt='Logo' />
         <h3 className='font-bold text-3xl'>savago</h3>
@@ -47,10 +47,6 @@ function Navigation() {
         <p>Login</p>
       </Link>
 
-      {/* <Avatar className='cursor-pointer'>
-        <AvatarImage src='https://github.com/shadcn.png' />
-        <AvatarFallback>S</AvatarFallback>
-      </Avatar> */}
       <Sheet>
         <SheetTrigger className='sm:block md:hidden'>
           <AiOutlineMenu className='text-2xl cursor-pointer' />

@@ -12,21 +12,21 @@ import Image from 'next/image';
 
 function Hero() {
   return (
-    <div className='flex flex-col md:flex-row mt-20 gap-5 lg:gap-10'>
+    <div className='flex flex-col md:flex-row mt-20 gap-5 lg:gap-10 mb-40'>
       <div className='md:w-3/6'>
-        <h1 className='text-4xl sm:text-6xl lg:text-7xl font-bold break-words max-w-[700px]'>
+        <h1 className='text-4xl md:text-6xl lg:text-7xl font-bold break-words max-w-[700px]'>
           <span className='text-primary'>Where</span> are you going to go?
         </h1>
-        <div className='mt-20 relative w-full 2xl:w-3/4 '>
+        <div className='input-container'>
           <input
             type='text'
-            className='w-full h-10 sm:h-20 rounded-full outline-none shadow-input py-7 px-12 sm:py-10 sm:px-12'
             placeholder='Destination or a hotel name'
+            className='input-container__input'
           />
           <BsSearch className='icon absolute left-5 top-1/2 -translate-y-1/2 opacity-70' />
-          <div className='absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-white flex items-center rounded-full py-2 px-4 sm:py-5 sm:px-10 shadow-button cursor-pointer'>
-            <button>Let's go</button>
-            <BsArrowRightShort />
+          <div className='input-submit'>
+            <button className='hidden md:block'>Let's go</button>
+            <BsArrowRightShort className='text-3xl' />
           </div>
         </div>
         <p className='mt-10 font-medium cursor-pointer'>
