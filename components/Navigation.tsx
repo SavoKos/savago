@@ -1,11 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { FiCompass, FiSettings } from 'react-icons/Fi';
+import { FiCompass, FiSettings } from 'react-icons/fi';
 import { BsSearch } from 'react-icons/bs';
 import { LuLogIn } from 'react-icons/lu';
 import { AiOutlineHeart, AiOutlineMenu } from 'react-icons/ai';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
   Sheet,
   SheetContent,
